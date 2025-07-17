@@ -3,8 +3,8 @@
 @use '../../styles/mixins' as *;
 
 .header {
-  background-color: $white-color;
-  color: white;
+  background-color: white;
+  border-bottom: 1px solid $color__light-gray; // Light gray
   padding: 1rem 1.5rem;
 
   &__container {
@@ -62,6 +62,7 @@
 
     & > * {
         margin: 1rem;
+        padding: 0.5rem;
     }
 
     &:hover {
@@ -72,7 +73,7 @@
       background-color: white;
       color: $primary-color;
       border-style: solid;
-      border-color: $primary-color;
+      border-color: $color__link-blue;
 
       &:hover {
         background-color: lighten(white, 5%);
@@ -80,8 +81,8 @@
     }
 
     &--signup {
-      background-color: $primary-color;
-      color: $white-color;
+      background-color: $color__link-blue;
+      color: white;
 
       &:hover {
         background-color: lighten(white, 5%);
