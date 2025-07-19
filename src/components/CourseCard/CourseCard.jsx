@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { FaShoppingCart, FaStar } from 'react-icons/fa';
 import './CourseCard.scss';
 
@@ -15,6 +16,11 @@ const CourseCard = ({ course }) => {
     level,
     lectures,
   } = course;
+
+  useEffect(() => {
+      console.log("loaded a coursecard");
+      console.log({course});
+    }, []);
 
   return (
     <div className="course-card">

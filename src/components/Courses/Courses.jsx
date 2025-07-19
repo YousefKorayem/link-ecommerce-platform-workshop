@@ -39,7 +39,7 @@ const Courses = () => {
         {courseChunks.map((chunk, index) => (
           <div className="course-slide" key={index}>
             {chunk.map((course) => (
-              <CourseCard course={course} />
+              <CourseCard key={course.id} course={course} />
             ))}
           </div>
         ))}
