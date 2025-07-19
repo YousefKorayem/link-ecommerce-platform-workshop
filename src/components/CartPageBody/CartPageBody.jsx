@@ -22,7 +22,7 @@ const CartPage = () => {
               <p>Your cart is empty.</p>
             )}
           </div>
-          <OrderSummary courses={cartItems} />
+          <OrderSummary courses={cartItems} isCheckoutPage={false} />
         </div>
       </section>
     </>

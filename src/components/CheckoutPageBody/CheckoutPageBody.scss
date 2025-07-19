@@ -1,0 +1,27 @@
+.checkout-page-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f5f7fa;
+  min-height: 80vh;
+
+  .checkout-left {
+    flex: 2;
+    min-width: 300px;
+  }
+
+  .checkout-right {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .checkout-left,
+    .checkout-right {
+      width: 100%;
+    }
+  }
+}
