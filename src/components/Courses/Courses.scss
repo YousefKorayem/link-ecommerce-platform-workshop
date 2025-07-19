@@ -1,0 +1,42 @@
+@use '../../styles/variables' as *;
+
+.courses-section {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+
+  .courses-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .courses-slider {
+    height: auto;   
+    display: flex;
+    justify-content: center;
+
+    .course-slide {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0 0.5rem;
+
+      .course-card {
+        flex: 0 0 auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+
+    .slick-dots {
+      bottom: -25px;
+    }
+  }
+}
