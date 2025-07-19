@@ -1,0 +1,53 @@
+.cart-course-card {
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+
+  .cart-course-image {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .cart-course-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .cart-course-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .cart-course-author,
+    .cart-course-category {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.2rem;
+    }
+
+    .cart-course-price {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      .original-price {
+        text-decoration: line-through;
+        color: #999;
+      }
+
+      .discounted-price {
+        color: #1a73e8;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -18,14 +18,18 @@ const Header = () => {
 
       const navigate = useNavigate();
     
-      const handleClick = () => {
+      const handleClickHome = () => {
         navigate(`/`);
+      };
+
+      const handleClickCart = () => {
+        navigate(`/cart`);
       };
 
     return (
         <header className="header">
             <div className="header__container">
-                <div className="header__logo" onClick={handleClick}>
+                <div className="header__logo" onClick={handleClickHome}>
                     <button className="header__logo--button" aria-label="To Homepage">
                         <img className="header__logo--image" src={logo}/>
                     </button>
@@ -39,7 +43,7 @@ const Header = () => {
 
                 {/* Menu buttons (in sidedbar on mobile, visible on large screens) */}
                 <div className="header__nav">
-                    <button className="header__nav--cart"><FaShoppingCart size={24} />
+                    <button className="header__nav--cart" onClick={handleClickCart}><FaShoppingCart size={24} />
                         {cartItems.length > 0 && (
                         <span className="cart-count">{cartItems.length}</span>
                         )}</button>
