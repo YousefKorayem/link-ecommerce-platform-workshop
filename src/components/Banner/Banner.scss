@@ -3,6 +3,7 @@
 
 .banner-carousel {
   width: 100%;
+  height: 80vh;
   overflow: hidden;
   position: relative;
   .slick-dots {
@@ -16,8 +17,8 @@
   align-items: center;
   padding: 2rem 1rem;
   position: relative;
-  min-height: 80vh;
   background: #fff;
+  height: 100%;
 
   --accent-color: var(--accent-color);
 
@@ -27,6 +28,7 @@
     align-self: flex-start;
     padding: 0 1rem;
     max-width: 90%;
+    flex-grow: 0;
 
     .banner-title {
       font-family: 'DM Sans', sans-serif;
@@ -64,30 +66,97 @@
     .image-container {
     position: relative;
     flex-grow: 1;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     z-index: 1;
     margin-top: 2rem;
+    flex-grow: 1;
 
     .circle-bg {
-        position: absolute;
-        bottom: 0;
-        width: 300px;
-        height: 300px;
-        background-color: var(--accent-color);
-        opacity: 0.1;
-        border-radius: 50%;
-        z-index: 0;
-    }
+  width: 80%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  background-color: var(--accent-color);
+  opacity: 0.1;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+}
 
     .banner-image {
-        max-height: 100%;
-        max-width: 90%;
+     max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  }
+    }
+
+
+   
+}
+
+ @media (min-width: 768px) {
+  .banner-slide {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+
+    .banner-text {
+      flex: 1;
+      padding-right: 2rem;
+      max-width: 50%;
+      text-align: left;
+      align-self: center;
+
+      .banner-title {
+        font-size: 60px;
+      }
+
+      .banner-brief {
+        font-size: 16px;
+      }
+
+      .banner-button {
+        font-size: 16px;
+        padding: 0.75rem 1.5rem;
+      }
+    }
+
+    .image-container {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .circle-bg {
+        width: 400px;
+        height: 400px;
+        bottom: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .banner-image {
+        max-height: 80%;
+        max-width: 100%;
         object-fit: contain;
         z-index: 1;
+      }
     }
-    }
+  }
+}
+
+.slick-slider,
+.slick-list,
+.slick-track,
+.slick-slide {
+  height: 100%;
 }
 
 .slick-dots {

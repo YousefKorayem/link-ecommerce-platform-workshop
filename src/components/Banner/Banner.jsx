@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import './Banner.scss';
 
+import bannerbg from '../../assets/hero-background.svg';
+
 const Banner = () => {
     const [banners, setBanners] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -31,7 +33,7 @@ const Banner = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 6000,
     };
 
@@ -43,23 +45,18 @@ const Banner = () => {
       <Slider {...settings}>
         {banners.map((banner) => (
             <div key={banner.id}>
-                <div
-                className="banner-slide"
-                style={{ '--accent-color': `#${banner.colorCode}` }}
-                >
-                <div className="banner-text">
-                    <div
-                    className="banner-title"
-                    dangerouslySetInnerHTML={{ __html: banner.title }}
-                    />
-                    <p className="banner-description">{banner.brief}</p>
-                    <button className="banner-button">Get Started</button>
-                </div>
-                <div className="banner-image-wrapper">
-                    <div className="circle-bg" />
-                    <img className="banner-image" src={banner.image} alt="Banner" />
-                </div>
-                </div>
+                <div className="banner-slide" style={{ '--accent-color': `#${banner.colorCode}` }}>
+  <div className="banner-text">
+    <div className="banner-title" dangerouslySetInnerHTML={{ __html: banner.title }} />
+    <p className="banner-description">{banner.brief}</p>
+    <button className="banner-button">Get Started</button>
+  </div>
+  <div className="image-container">
+    <div className="circle-bg" />
+    <img className="banner-image" src={banner.image} alt="Banner" />
+    {/* <img src={bannerbg}></img> */}
+  </div>
+</div>
             </div>
             ))}
       </Slider>
