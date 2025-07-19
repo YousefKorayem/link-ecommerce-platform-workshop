@@ -1,3 +1,6 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -18,6 +21,7 @@
   &__close {
     align-self: flex-end;
     font-size: 2rem;
+    color: $color__light-gray-2;
     background: none;
     border: none;
     cursor: pointer;
@@ -28,7 +32,51 @@
     margin-bottom: 1rem;
   }
 
-  @media (min-width: 768px) {
-    display: none;
+  &__nav {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    display: flex;
+
+    & > * {
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    &--login {
+      background-color: white;
+      color: $primary-color;
+      border-style: solid;
+      border-color: $color__link-blue;
+
+      &:hover {
+        background-color: lighten(white, 5%);
+      }
+    }
+
+    &--signup {
+      background-color: $color__link-blue;
+      color: white;
+
+      &:hover {
+        background-color: lighten(white, 5%);
+      }
+    }
+
+    &--cart {
+      display: flex;
+      justify-content: center; /* horizontal centering */
+      align-items: center;
+    }
   }
 }
