@@ -1,9 +1,15 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { FaShoppingCart, FaStar } from 'react-icons/fa';
 import './CourseCard.scss';
+import { useNavigate } from 'react-router-dom';
 
 const CourseCard = ({ course }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/course/${course.id}`);
+  };
+
   const {
     image,
     discount,
@@ -17,13 +23,8 @@ const CourseCard = ({ course }) => {
     lectures,
   } = course;
 
-  useEffect(() => {
-      console.log("loaded a coursecard");
-      console.log({course});
-    }, []);
-
   return (
-    <div className="course-card">
+    <div className="course-card" onClick={handleClick}>
       <div className="image-wrapper">
         <img src={image} alt={title} className="course-image" />
         {discount && <div className="discount-badge">-${discount}</div>}

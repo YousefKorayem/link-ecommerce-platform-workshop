@@ -10,6 +10,9 @@
   gap: 10px;
   transition: transform 0.3s ease;
   margin: 0 auto;
+
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .course-card:hover {

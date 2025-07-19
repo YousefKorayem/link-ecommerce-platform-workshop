@@ -1,0 +1,93 @@
+.course-card-detailed {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: #222;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #444;
+    text-align: center;
+    margin: 0.25rem 0;
+  }
+
+  .course-meta {
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+    img {
+      max-height: 400px;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    .course-meta {
+      font-size: 1rem;
+    }
+  }
+
+  .buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+
+      .add-to-cart,
+      .buy-now {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .add-to-cart {
+        background-color: #f39c12;
+        color: white;
+
+        &:hover {
+          background-color: #e67e22;
+        }
+      }
+
+      .buy-now {
+        background-color: #2ecc71;
+        color: white;
+
+        &:hover {
+          background-color: #27ae60;
+        }
+      }
+    }
+}

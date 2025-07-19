@@ -1,5 +1,6 @@
 // src/components/Header/Header.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './Header.scss';
 
@@ -13,10 +14,16 @@ const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
+      const navigate = useNavigate();
+    
+      const handleClick = () => {
+        navigate(`/`);
+      };
+
     return (
         <header className="header">
             <div className="header__container">
-                <div className="header__logo">
+                <div className="header__logo" onClick={handleClick}>
                     <button className="header__logo--button" aria-label="To Homepage">
                         <img className="header__logo--image" src={logo}/>
                     </button>
