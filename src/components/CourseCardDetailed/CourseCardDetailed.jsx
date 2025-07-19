@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useCart } from '../../context/CartContext';
 import './CourseCardDetailed.scss';
 
 const CourseCardDetailed = ({ courseId }) => {
   const [course, setCourse] = useState(null);
+  const { addToCart } = useCart();
+  const handleAddToCart = () => addToCart(course);
 
   useEffect(() => {
     fetch('https://api.npoint.io/983f88db4d99fec8edd9')
@@ -25,7 +28,7 @@ const CourseCardDetailed = ({ courseId }) => {
       <p>{course.hours} hours • {course.lectures} lectures • {course.level}</p>
       <p>{course.description}</p>
       <div className="buttons">
-          <button className="add-to-cart">Add to Cart</button>
+          <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
           <button className="buy-now">Buy Now</button>
         </div>
     </div>

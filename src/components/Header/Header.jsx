@@ -1,6 +1,7 @@
 // src/components/Header/Header.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 import './Header.scss';
 
@@ -8,10 +9,11 @@ import Sidebar from '../Sidebar/Sidebar';
 
 import logo from '../../assets/logo.svg';
 import hamburger from '../../assets/hamburger.svg';
-import cart from '../../assets/cart.svg';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const { cartItems } = useCart();
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
       const navigate = useNavigate();
@@ -37,7 +39,10 @@ const Header = () => {
 
                 {/* Menu buttons (in sidedbar on mobile, visible on large screens) */}
                 <div className="header__nav">
-                    <button className="header__nav--cart"><img className="header__nav--cart--icon" src={cart}/></button>
+                    <button className="header__nav--cart"><FaShoppingCart size={24} />
+                        {cartItems.length > 0 && (
+                        <span className="cart-count">{cartItems.length}</span>
+                        )}</button>
                     <button className="header__nav--login">Log In</button>
                     <button className="header__nav--signup">Sign Up</button>
                 </div>
