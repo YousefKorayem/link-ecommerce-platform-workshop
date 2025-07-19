@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Banner from './components/Banner/Banner';
 import Gallery from './components/Gallery/Gallery';
 import Courses from './components/Courses/Courses';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
       <Banner></Banner>
       <Gallery></Gallery>
       <Courses></Courses>
+      <Footer></Footer>
     </>
   )
 }

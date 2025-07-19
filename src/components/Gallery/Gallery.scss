@@ -2,6 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .gallery-section {
+  background-color: $color__link-blue;
   height: 80vh;
   max-height: 80vh;
   padding: 2rem 1rem;
