@@ -49,13 +49,13 @@ const OrderSummary = ({ courses, isCheckoutPage, onCompletePayment }) => {
       </div>
 
       <button
-        disabled={!cartPaid}
+        disabled={!cartPaid && isCheckoutPage}
         className="checkout-button"
         onClick={isCheckoutPage ? handleCheckout : handleClick}
       >
         {isCheckoutPage ? 'Complete Order' : 'Proceed to Checkout'}
       </button>
-      {!cartPaid && <p className="note">You must complete payment first.</p>}
+      {!cartPaid && isCheckoutPage && <p className="note">You must complete payment first.</p>}
     </div>
   );
 };
