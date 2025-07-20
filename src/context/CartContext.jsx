@@ -1,13 +1,21 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    // Initialize from localStorage
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  useEffect(() => {
+    // Update localStorage whenever cartItems change
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (course) => {
     setCartItems((prev) => {
-      // Prevent duplicate courses
       const alreadyInCart = prev.find((item) => item.id === course.id);
       return alreadyInCart ? prev : [...prev, course];
     });
