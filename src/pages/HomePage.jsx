@@ -1,5 +1,3 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import Header from '../components/Header/Header';
 import Banner from '../components/Banner/Banner';
 import Gallery from '../components/Gallery/Gallery';
