@@ -37,9 +37,9 @@ const CourseCardDetailed = ({ courseId }) => {
           <span>{course.hours} Total Hours • {course.lectures} Lectures • {course.level}</span>
         </div>
         <p className="author">Created by <strong>{course.author}</strong></p>
-        <p className="languages">
+        {/* <p className="languages">
           <FaGlobe className="globe-icon" />
-        </p>
+        </p> */}
       </div>
 
       <div className="right-card">

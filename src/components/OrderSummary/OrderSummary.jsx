@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 
 const OrderSummary = ({ courses, isCheckoutPage, onCompletePayment }) => {
-  const { clearCart } = useCart();
+  const { clearCart, cartPaid } = useCart();
 
   const totalPrice = courses.reduce((sum, c) => sum + c.price, 0);
   const totalDiscount = courses.reduce((sum, c) => sum + (c.discount || 0), 0);
@@ -49,11 +49,13 @@ const OrderSummary = ({ courses, isCheckoutPage, onCompletePayment }) => {
       </div>
 
       <button
+        disabled={!cartPaid}
         className="checkout-button"
         onClick={isCheckoutPage ? handleCheckout : handleClick}
       >
-        {isCheckoutPage ? 'Complete Payment' : 'Proceed to Checkout'}
+        {isCheckoutPage ? 'Complete Order' : 'Proceed to Checkout'}
       </button>
+      {!cartPaid && <p className="note">You must complete payment first.</p>}
     </div>
   );
 };

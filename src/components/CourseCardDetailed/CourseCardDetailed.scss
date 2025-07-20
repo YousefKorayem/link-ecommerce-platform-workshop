@@ -176,7 +176,7 @@
   }
 
   .add-to-cart {
-    background-color: #007bff;
+    background-color: $color__link-blue;
     color: white;
 
     &:hover {
@@ -212,6 +212,49 @@
       &:hover {
         color: #007bff;
       }
+    }
+  }
+}
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: $color__link-blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #005bb5;
+  }
+}
+
+.success-message {
+  padding: 2rem;
+  background-color: #e6ffe6;
+  border: 1px solid #a3e6a3;
+  border-radius: 10px;
+  color: #155724;
+
+  h2 {
+    margin-top: 0;
+    color: #2d8a34;
+  }
+
+  ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+
+    li {
+      margin-bottom: 0.5rem;
     }
   }
 }
