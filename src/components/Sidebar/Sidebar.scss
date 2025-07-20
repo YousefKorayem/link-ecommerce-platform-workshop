@@ -13,6 +13,7 @@
   flex-direction: column;
   padding: 1.5rem;
   transition: right 0.3s ease;
+  z-index: 1000;
 
   &--open {
     right: 0;
@@ -38,15 +39,39 @@
     color: white;
     padding: 0.4rem 0.75rem;
     border-radius: 4px;
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     cursor: pointer;
     transition: background 0.2s;
 
     display: flex;
 
+    &--cart {
+      position: relative;
+      font-size: 1.75rem;
+      color: $color__link-blue;
+      cursor: pointer;
+      padding:0;
+
+      &-badge {
+        position: absolute;
+        top: -0.5rem;
+        right: 4.75rem;
+        background-color: orange;
+        color: white;
+        border-radius: 50%;
+        font-size: 0.7rem;
+        width: 1.25rem;
+        height: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+      }
+    }
+
     & > * {
         margin: 1rem;
-        padding: 0.5rem;
+        padding: 0.75rem;
     }
 
     &:hover {
@@ -54,22 +79,30 @@
     }
 
     &--login {
+      font-size: 1.25rem;
+      padding: 0.75rem;
+      margin: 1rem;
       background-color: white;
       color: $primary-color;
       border-style: solid;
       border-color: $color__link-blue;
 
       &:hover {
-        background-color: lighten(white, 5%);
+        background-color: $color__white-hover;
       }
     }
 
+    
+
     &--signup {
+      font-size: 1.25rem;
+      padding: 0.75rem;
+      margin: 1rem;
       background-color: $color__link-blue;
       color: white;
 
       &:hover {
-        background-color: lighten(white, 5%);
+        background-color: $color__link-blue-hover;
       }
     }
 

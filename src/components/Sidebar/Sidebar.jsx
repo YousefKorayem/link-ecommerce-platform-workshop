@@ -21,10 +21,12 @@ const Sidebar = ({ isOpen, onClose }) => {
         <button className="sidebar__close" onClick={onClose}>×</button>
         <button className="sidebar__nav--login">Log In</button>
         <button className="sidebar__nav--signup">Sign Up</button>
-        <button className="header__nav--cart" onClick={handleClickCart}><FaShoppingCart size={24} />
-        {cartItems.length > 0 && (
-        <span className="cart-count">{cartItems.length}</span>
-        )}</button>
+        <button className="sidebar__nav--cart" onClick={handleClickCart}>
+            <FaShoppingCart />
+            {cartItems.length > 0 && (
+                <div className="sidebar__nav--cart-badge">{cartItems.length}</div>
+            )}
+        </button>
         
     </div>
   );
