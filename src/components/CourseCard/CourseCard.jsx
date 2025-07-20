@@ -25,30 +25,32 @@ const CourseCard = ({ course }) => {
 
   return (
     <div className="course-card" onClick={handleClick}>
-      <div className="image-wrapper">
-        <img src={image} alt={title} className="course-image" />
-        {discount && <div className="discount-badge">-${discount}</div>}
-        <div className="cart-icon">
+      <div className="course-card__image-wrapper">
+        <img src={image} alt={title} className="course-card__image" />
+        <div className="course-card__image-overlay"></div>
+
+        {discount && <div className="course-card__discount">-${discount}</div>}
+        <div className="course-card__cart-icon">
           <FaShoppingCart />
         </div>
       </div>
 
-      <div className="price-category">
-        <span className="price">${price}</span>
-        <span className="category">{category}</span>
+      <div className="course-card__info-row">
+        <span className="course-card__price">${price}</span>
+        <span className="course-card__category">{category}</span>
       </div>
 
-      <h3 className="course-title">{title}</h3>
-      <p className="course-author">{author}</p>
+      <h3 className="course-card__title">{title}</h3>
+      <p className="course-card__author">{author}</p>
 
-      <div className="rating-row">
+      <div className="course-card__rating">
         {[...Array(5)].map((_, idx) => (
           <FaStar key={idx} className="star" />
         ))}
-        <span className="rating-count">({ratingCount} ratings)</span>
+        <span className="course-card__rating-count">({ratingCount} ratings)</span>
       </div>
 
-      <p className="course-meta">
+      <p className="course-card__meta">
         {hours} Total Hours. {lectures} Lectures. {level}
       </p>
     </div>

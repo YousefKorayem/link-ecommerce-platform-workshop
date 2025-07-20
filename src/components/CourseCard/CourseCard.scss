@@ -1,3 +1,6 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .course-card {
   color: black;
   border-radius: 12px;
@@ -8,101 +11,109 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.3s ease;
   margin: 0 auto;
-
   cursor: pointer;
   transition: transform 0.2s ease;
-}
 
-.course-card:hover {
-  transform: translateY(-5px);
-}
+  &:hover {
+    transform: translateY(-5px);
+  }
 
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; // 16:9 aspect ratio
-  overflow: hidden;
-  border-radius: 8px;
-}
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; // 16:9 aspect ratio
+    overflow: hidden;
+    border-radius: 8px;
+  }
 
-.course-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.discount-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background-color: #ff4136;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-}
+  &__image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 
-.cart-icon {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background-color: #0074D9;
-  padding: 6px;
-  border-radius: 50%;
-  color: white;
-  font-size: 0.9rem;
-}
+  &__discount {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: $color__pink-discount;
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 0;
+  }
 
-.price-category {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
+  &__cart-icon {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    color: white;
+    font-size: 0.9rem;
+    z-index: 2;
+  }
 
-.price {
-  font-weight: bold;
-  color: #2ecc40;
-}
+  &__info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
 
-.category {
-  font-style: italic;
-  color: #7fdbff;
-}
+  &__price {
+    font-weight: bold;
+    color: $color__link-blue;
+  }
 
-.course-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 4px 0;
-}
+  &__category {
+    background-color: $color__link-blue;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+  }
 
-.course-author {
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 4px 0;
+  }
 
-.rating-row {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.85rem;
-}
+  &__author {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
 
-.star {
-  color: gold;
-}
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
 
-.rating-count {
-  margin-left: 4px;
-  font-size: 0.8rem;
-}
+    &-count {
+      margin-left: 4px;
+      font-size: 0.8rem;
+    }
 
-.course-meta {
-  font-size: 0.75rem;
-  opacity: 0.8;
+    .star {
+      color: $color__gold-star;
+    }
+  }
+
+  &__meta {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
 }

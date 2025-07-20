@@ -1,22 +1,58 @@
-.courses-section {
-  padding: 40px 20px;
-  color: white;
-  text-align: left;
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.courses-section{
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .courses-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #ffffff;
-  text-align: left;
+  font-size: 2rem;       
+  font-weight: bold;      
+  text-align: center;     
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;     
+  }
 }
 
 .courses-slider {
-  .course-slide {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    padding: 10px;
+  margin: 1rem;
+
+  .slick-slide {
+    padding: 0 0.75rem; // Horizontal spacing between slides
+    box-sizing: border-box;
+    min-height: 400px;
   }
+}
+
+.category-button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  // @media (max-width: 768px) {
+  //   display: none;
+  // }
+}
+
+.category-button {
+  background-color: #e0e0e0;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  &.active {
+    background-color: $color__link-blue;
+    color: white;
+  }
+}
+
+.course-card {
+  margin: 0; // Remove old margin so it doesn’t conflict
 }
