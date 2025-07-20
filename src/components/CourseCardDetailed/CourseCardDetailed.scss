@@ -1,93 +1,156 @@
-.course-card-detailed {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.course-detailed-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
+.left-content {
+  flex: 7;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
 
-  img {
-    width: 100%;
-    max-height: 320px;
-    object-fit: cover;
-    border-radius: 0.75rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 0.5rem;
-    color: #222;
-  }
-
-  p {
-    font-size: 1rem;
-    color: #444;
-    text-align: center;
-    margin: 0.25rem 0;
-  }
-
-  .course-meta {
-    font-size: 0.95rem;
+  .breadcrumb {
+    font-size: 0.9rem;
     color: #666;
   }
 
-  @media (min-width: 768px) {
-    padding: 2rem;
-    img {
-      max-height: 400px;
+  .course-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .course-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+
+    .stars {
+      color: #f5c518;
+      display: flex;
+      gap: 0.2rem;
+
+      .star {
+        font-size: 1rem;
+      }
     }
 
-    h2 {
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-
-    .course-meta {
-      font-size: 1rem;
+    .separator {
+      font-weight: bold;
     }
   }
 
-  .buttons {
-      margin-top: 1.5rem;
-      display: flex;
-      gap: 1rem;
+  .author {
+    font-size: 0.95rem;
+    color: #333;
+  }
 
-      .add-to-cart,
-      .buy-now {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
+  .languages {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
 
-      .add-to-cart {
-        background-color: #f39c12;
-        color: white;
+    .globe-icon {
+      color: #007bff;
+    }
+  }
+}
 
-        &:hover {
-          background-color: #e67e22;
-        }
-      }
+.right-card {
+  flex: 3;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-      .buy-now {
-        background-color: #2ecc71;
-        color: white;
+  .course-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
 
-        &:hover {
-          background-color: #27ae60;
-        }
+  .price-section {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+
+    .final-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #aaa;
+    }
+
+    .discount {
+      color: #28a745;
+      font-weight: bold;
+    }
+  }
+
+  .add-to-cart {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .buy-now {
+    background-color: white;
+    color: #007bff;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f8ff;
+    }
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 1rem 0;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.25rem;
+    color: #666;
+
+    span {
+      cursor: pointer;
+
+      &:hover {
+        color: #007bff;
       }
     }
+  }
 }
