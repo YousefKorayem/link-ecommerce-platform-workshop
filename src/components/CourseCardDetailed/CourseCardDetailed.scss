@@ -1,3 +1,7 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+
 .course-detailed-container {
   display: flex;
   gap: 2rem;
@@ -5,6 +9,12 @@
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
 }
 
 .left-content {
@@ -16,16 +26,28 @@
   .breadcrumb {
     font-size: 0.9rem;
     color: #666;
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 
   .course-title {
     font-size: 2rem;
     font-weight: bold;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   .description {
     font-size: 1rem;
     color: #333;
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+    }
   }
 
   .course-meta {
@@ -35,6 +57,12 @@
     font-size: 0.9rem;
     color: #666;
 
+    @media (max-width: 768px) {
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
     .stars {
       color: #f5c518;
       display: flex;
@@ -42,6 +70,10 @@
 
       .star {
         font-size: 1rem;
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem;
+        }
       }
     }
 
@@ -53,6 +85,10 @@
   .author {
     font-size: 0.95rem;
     color: #333;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 
   .languages {
@@ -61,6 +97,10 @@
     gap: 0.5rem;
     font-size: 0.9rem;
     color: #555;
+
+    @media (max-width: 768px) {
+      font-size: 0.85rem;
+    }
 
     .globe-icon {
       color: #007bff;
@@ -92,41 +132,62 @@
     .final-price {
       font-size: 1.5rem;
       font-weight: bold;
+
+      @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
     }
 
     .original-price {
       text-decoration: line-through;
       color: #aaa;
+      font-size: 1rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
     }
 
     .discount {
       color: #28a745;
       font-weight: bold;
+      font-size: 1rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .add-to-cart,
+  .buy-now {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+      padding: 0.65rem;
     }
   }
 
   .add-to-cart {
     background-color: #007bff;
     color: white;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: $color__link-blue-hover;
     }
   }
 
   .buy-now {
     background-color: white;
-    color: #007bff;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #007bff;
-    border-radius: 8px;
-    cursor: pointer;
+    color: $color__link-blue;
+    border: 1px solid $color__link-blue;
 
     &:hover {
       background-color: #f0f8ff;
@@ -145,7 +206,7 @@
     font-size: 1.25rem;
     color: #666;
 
-    span {
+    span, a {
       cursor: pointer;
 
       &:hover {
