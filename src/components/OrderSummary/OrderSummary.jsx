@@ -1,7 +1,5 @@
 import React from 'react';
 import './OrderSummary.scss';
-
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const OrderSummary = ({ courses, isCheckoutPage, onCompletePayment }) => {
@@ -14,17 +12,38 @@ const OrderSummary = ({ courses, isCheckoutPage, onCompletePayment }) => {
 
   const handleClick = () => {
     navigate('/checkout');
-  }
+  };
 
   return (
     <div className="order-summary">
       <h3>Order Details</h3>
-      <p>Original Price: ${totalPrice}</p>
-      <p>Discount: -${totalDiscount}</p>
-      <p>Tax (10%): ${tax}</p>
+
+      <div className="summary-line">
+        <span>Original Price:</span>
+        <span>${totalPrice}</span>
+      </div>
+
+      <div className="summary-line discount">
+        <span>Discount:</span>
+        <span>-${totalDiscount}</span>
+      </div>
+
+      <div className="summary-line tax">
+        <span>Tax (10%):</span>
+        <span>${tax}</span>
+      </div>
+
       <hr />
-      <p className="net-total">Total: ${finalTotal}</p>
-      <button className="checkout-button" onClick={isCheckoutPage ? onCompletePayment : handleClick}>
+
+      <div className="summary-line total">
+        <span>Total:</span>
+        <span>${finalTotal}</span>
+      </div>
+
+      <button
+        className="checkout-button"
+        onClick={isCheckoutPage ? onCompletePayment : handleClick}
+      >
         {isCheckoutPage ? 'Complete Payment' : 'Proceed to Checkout'}
       </button>
     </div>

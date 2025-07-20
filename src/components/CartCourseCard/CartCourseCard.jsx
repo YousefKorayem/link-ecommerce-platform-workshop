@@ -1,29 +1,51 @@
 import React from 'react';
+import { useCart } from '../../context/CartContext';
 import './CartCourseCard.scss';
 
 const CartCourseCard = ({ course }) => {
-  const { title, author, image, price, discount, category } = course;
+  const { removeFromCart } = useCart();
+
+  const {
+    id,
+    title,
+    author,
+    image,
+    price,
+    discount,
+    category,
+    totalHours,
+    lectures,
+    level,
+    rating = 5,
+  } = course;
 
   const discountedPrice = price - (discount || 0);
 
   return (
     <div className="cart-course-card">
-      <img src={image} alt={title} className="cart-course-image" />
-      <div className="cart-course-info">
-        <h4 className="cart-course-title">{title}</h4>
-        <p className="cart-course-author">{author}</p>
-        <p className="cart-course-category">{category}</p>
-        <div className="cart-course-price">
-          {discount ? (
-            <>
-              <span className="original-price">${price}</span>
-              <span className="discounted-price">${discountedPrice}</span>
-            </>
-          ) : (
-            <span className="discounted-price">${price}</span>
-          )}
-        </div>
+      <div className="image-wrapper">
+        <img src={image} alt={title} className="cart-course-image" />
+        {discount ? (
+          <div className="discount-badge">-${discount}</div>
+        ) : null}
       </div>
+
+      <div className="cart-course-info">
+        <h4 className="title">{title}</h4>
+        <p className="author">By {author}</p>
+
+        <div className="metadata">
+          <span className="stars">★★★★★</span>
+          <span className="divider">|</span>
+          <span>{totalHours} Total Hours. {lectures} Lectures. {level}.</span>
+        </div>
+
+        <button className="remove" onClick={() => removeFromCart(id)}>
+          Remove
+        </button>
+      </div>
+
+      <div className="price">${discountedPrice}</div>
     </div>
   );
 };

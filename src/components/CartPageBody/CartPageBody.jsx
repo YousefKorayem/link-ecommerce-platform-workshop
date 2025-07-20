@@ -1,32 +1,33 @@
-import React, { useContext } from 'react';
-import { useCart } from '../../context/CartContext';
-import CartCourseCard from '../CartCourseCard/CartCourseCard';
-import OrderSummary from '../OrderSummary/OrderSummary';
-
+import React from 'react';
 import './CartPageBody.scss';
+import CartCourseCard from '../CartCourseCard/CartCourseCard';
+import OrderSummaryCard from '../OrderSummary/OrderSummary';
+import { useCart } from '../../context/CartContext';
 
-const CartPage = () => {
+const CartPageBody = () => {
   const { cartItems } = useCart();
 
   return (
-    <>
-      <section className="cart-page">
-        <div className="cart-content">
-          <div className="cart-items">
-            <h2>Your Cart</h2>
-            {cartItems.length > 0 ? (
-              cartItems.map((item) => (
-                <CartCourseCard key={item.id} course={item} />
-              ))
-            ) : (
-              <p>Your cart is empty.</p>
-            )}
-          </div>
-          <OrderSummary courses={cartItems} isCheckoutPage={false} />
+    <div className="cart-page">
+      {/* Left Side: Cart Info */}
+      <div className="cart-left">
+        <div className="breadcrumb">Categories &gt; Details &gt; <strong>Shopping Cart</strong></div>
+        <h1 className="cart-title">Shopping Cart</h1>
+        <p className="cart-count">{cartItems.length} Course(s) in cart</p>
+
+        <div className="cart-course-list">
+          {cartItems.map(course => (
+            <CartCourseCard key={course.id} course={course} />
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+
+      {/* Right Side: Order Summary */}
+      <div className="cart-right">
+        <OrderSummaryCard courses={cartItems} isCheckoutPage={false} />
+      </div>
+    </div>
   );
 };
 
-export default CartPage;
+export default CartPageBody;

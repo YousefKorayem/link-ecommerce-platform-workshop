@@ -1,45 +1,47 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .order-summary {
-  background-color: #ffffff;
+  background-color: #f4f6f8; // slightly darker background
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 350px;
 
   h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
     font-weight: 600;
+    color: #1a3d8f; // dark blue
   }
 
   .summary-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.8rem;
+    margin: 0.6rem 0;
     font-size: 1rem;
     color: #333;
-
-    &.discount {
-      color: #d32f2f;
-    }
-
-    &.tax {
-      color: #666;
-    }
 
     &.total {
       font-weight: bold;
       font-size: 1.1rem;
-      border-top: 1px solid #ddd;
-      padding-top: 0.8rem;
+      color: #000;
+      margin-top: 1rem;
     }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
   }
 
   .checkout-button {
     margin-top: 1.5rem;
     width: 100%;
     padding: 0.8rem;
-    background-color: #1a73e8;
+    background-color: $color__link-blue;
     color: white;
     font-size: 1rem;
     font-weight: 600;
