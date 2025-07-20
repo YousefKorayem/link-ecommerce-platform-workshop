@@ -26,34 +26,34 @@ const Gallery = () => {
   };
 
   return (
-    <section className="gallery">
-      <div className="gallery__header">
-        <h2 className="gallery__title"><span className="gallery__title--emph">Check</span> our latest Media Gallery</h2>
-        <p className="gallery__subtitle">
-          Every picture holds a moment, every moment holds a story
-        </p>
+    <div className="gallery">
+      <div className="gallery__text">
+        <h2 className="gallery__title">
+          <span className="gallery__title--emph">Check</span> our latest Media Gallery
+        </h2>
+        <p className="gallery__subtitle">Every picture holds a moment, every moment holds a story</p>
+        <div className="gallery__button-wrapper desktop-only">
+          <button className="gallery__button">View all Photos</button>
+        </div>
+
       </div>
 
       <div className="gallery__slider">
-        <Slider {...settings}>
-          {images.map((img, index) => (
+        <Slider dots={true} arrows={false}>
+          {images.map((item, index) => (
             <div key={index} className="gallery__slide">
               <div className="gallery__image-wrapper">
-                <img
-                  src={img.image || img}
-                  alt={`Gallery image ${index + 1}`}
-                  className="gallery__image"
-                />
+                <img src={item.image} alt="" className="gallery__image" />
               </div>
             </div>
           ))}
         </Slider>
       </div>
 
-      <div className="gallery__button-wrapper">
-        <button className="gallery__button">View all photos</button>
+      <div className="gallery__button-wrapper mobile-only">
+          <button className="gallery__button">View all Photos</button>
       </div>
-    </section>
+    </div>
   );
 };
 
