@@ -7,10 +7,6 @@ import CheckoutConfirmed from '../components/CheckoutConfirmed/CheckoutConfirmed
 function Checkout() {
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  useEffect(() => {
-    console.log(isConfirmed);
-  }, [isConfirmed])
-
   return (
     <>
       <Header></Header>
