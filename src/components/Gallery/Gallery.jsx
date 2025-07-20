@@ -9,13 +9,9 @@ const Gallery = () => {
 
   useEffect(() => {
     fetch('https://api.npoint.io/8494c045d50509ba0d5a')
-      .then(res => res.json())
-      .then(data => {
-        setImages(data.Slider || []);
-      })
-      .catch(err => {
-        console.error('Failed to load gallery images:', err);
-      });
+      .then((res) => res.json())
+      .then((data) => setImages(data.Slider || []))
+      .catch((err) => console.error('Failed to load gallery images:', err));
   }, []);
 
   const settings = {
@@ -30,26 +26,32 @@ const Gallery = () => {
   };
 
   return (
-    <section className="gallery-section">
-      <div className="gallery-header">
-        <h2 className="gallery-title">Check our latest Media Gallery</h2>
-        <p className="gallery-subtitle">
+    <section className="gallery">
+      <div className="gallery__header">
+        <h2 className="gallery__title"><span className="gallery__title--emph">Check</span> our latest Media Gallery</h2>
+        <p className="gallery__subtitle">
           Every picture holds a moment, every moment holds a story
         </p>
       </div>
 
-      <div className="gallery-slider">
+      <div className="gallery__slider">
         <Slider {...settings}>
           {images.map((img, index) => (
-            <div key={index} className="gallery-slide">
-              <img src={img.image || img} alt={`Gallery image ${index + 1}`} />
+            <div key={index} className="gallery__slide">
+              <div className="gallery__image-wrapper">
+                <img
+                  src={img.image || img}
+                  alt={`Gallery image ${index + 1}`}
+                  className="gallery__image"
+                />
+              </div>
             </div>
           ))}
         </Slider>
       </div>
 
-      <div className="gallery-button-wrapper">
-        <button className="gallery-button">View all photos</button>
+      <div className="gallery__button-wrapper">
+        <button className="gallery__button">View all photos</button>
       </div>
     </section>
   );
