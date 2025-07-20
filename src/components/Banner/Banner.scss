@@ -5,6 +5,12 @@
   height: 750px;
   overflow: hidden;
 
+  @media(min-width: $breakpoint-md){
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__error,
   &__loading {
     display: flex;
@@ -136,11 +142,14 @@
 }
 
   @media (min-width: 768px) {
+  .banner-carousel {
+    height: 650px; // Reduced height for desktop
+
     &__slide {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      padding: 4rem;
+      padding: 9rem; // More space from edges
 
       .banner-carousel__text {
         flex: 1;
@@ -162,6 +171,7 @@
       }
 
       .banner-carousel__image-container {
+        width: 50%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -170,29 +180,27 @@
 
         .banner-carousel__circle-bg {
           position: absolute;
-          width: 60%;
-          aspect-ratio: 1;
+          width: 350px;
+          height: 350px;
           background-color: var(--accent-color);
           opacity: 0.1;
           border-radius: 50%;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          max-width: 400px;
-          max-height: 400px;
         }
 
         .banner-carousel__image {
           max-width: 80%;
           max-height: 80%;
-          width: auto;
-          height: auto;
           object-fit: contain;
           z-index: 1;
         }
       }
     }
   }
+}
+
 
   .slick-slider,
   .slick-list,
@@ -232,3 +240,5 @@
     }
   }
 }
+
+
